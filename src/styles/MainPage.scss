@@ -1,0 +1,52 @@
+@import 'common.scss';
+
+.section {
+  &.main-section {
+    padding-top: 0;
+    .container {
+      &.main-container {
+        box-shadow: 0 4px 4px $brand-dark;
+        border-radius: 5px;
+        background-color: $white-dark;
+        padding: 1rem;
+
+        .search-form {
+          margin-bottom: 1rem;
+        }
+
+        .level-container {
+          align-items: flex-start;
+        }
+
+        .level-right {
+          width: 35%;
+
+          .video-list {
+            overflow-y: scroll;
+            max-height: 60vh;
+            // .panel-block {
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            // }
+            .video-item {
+              margin-bottom: 1rem;
+              width: 100%;
+            }
+          }
+        }
+        // div.table-container {
+        //   max-height: 70vh;
+        //   overflow-y: scroll;
+        //   box-shadow: 0 4px 4px $brand-dark;
+        //   border-radius: 5px;
+
+        //   .table tr:first-child > th {
+        //     position: sticky;
+        //     top: 0;
+        //   }
+        // }
+      }
+    }
+  }
+}
