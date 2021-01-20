@@ -15,7 +15,7 @@ const MainPage: React.FC = () => {
     null,
   );
 
-  const { error, loading } = useTypedSelector((state) => state.repositories);
+  const { error, loading } = useTypedSelector((state) => state.videos);
 
   const onVideoSelect = (video: FetchedVideoItem | null) => {
     setSelectedVideo(video);

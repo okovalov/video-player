@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import VideoItem from './VideoItem';
 import { FetchedVideoItem } from '../state';
-
 import { useTypedSelector } from '../hooks/useTypedSelector';
 
 interface VideoListProps {
@@ -11,9 +10,7 @@ interface VideoListProps {
 const VideoList: React.FC<VideoListProps> = ({
   onVideoSelect,
 }: VideoListProps) => {
-  const { data, error, loading } = useTypedSelector(
-    (state) => state.repositories,
-  );
+  const { data, error, loading } = useTypedSelector((state) => state.videos);
 
   const videosMapper = (video: FetchedVideoItem) => {
     return (

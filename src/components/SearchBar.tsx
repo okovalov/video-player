@@ -1,20 +1,16 @@
 import React, { useState } from 'react';
 import { useActions } from '../hooks/useActions';
 
-// interface SearchableProps {
-//   onFormSubmit: (term: string) => void;
-// }
-
 const SearchBar: React.FC = () => {
   const [term, setTerm] = useState('');
 
-  const { searchRepositories } = useActions();
+  const { searchVideos } = useActions();
 
   const onSubmit: React.FormEventHandler<HTMLFormElement> = (
     event: React.FormEvent<HTMLFormElement>,
   ) => {
     event.preventDefault();
-    searchRepositories(term);
+    searchVideos(term);
   };
 
   return (

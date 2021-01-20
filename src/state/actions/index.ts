@@ -1,26 +1,26 @@
 import { ActionType } from '../action-types';
 import { FetchedVideoItem } from '../types';
 
-interface SearchRepositoriesAction {
-  type: ActionType.SEARCH_REPOSITORIES;
+interface SearchVideosAction {
+  type: ActionType.SEARCH_VIDEOS;
 }
 
-interface SearchRepositoriesSuccessAction {
-  type: ActionType.SEARCH_REPOSITORIES_SUCCESS;
+interface SearchVideosSuccessAction {
+  type: ActionType.SEARCH_VIDEOS_SUCCESS;
   payload: FetchedVideoItem[];
 }
 
-interface SearchRepositoriesErrorAction {
-  type: ActionType.SEARCH_REPOSITORIES_ERROR;
+interface SearchVideosErrorAction {
+  type: ActionType.SEARCH_VIDEOS_ERROR;
   payload: string;
 }
 
-export interface SearchRepositoriesErrorResetAction {
-  type: ActionType.SEARCH_REPOSITORIES_ERROR_RESET;
+export interface SearchVideosErrorResetAction {
+  type: ActionType.SEARCH_VIDEOS_ERROR_RESET;
 }
 
 export type Action =
-  | SearchRepositoriesAction
-  | SearchRepositoriesSuccessAction
-  | SearchRepositoriesErrorAction
-  | SearchRepositoriesErrorResetAction;
+  | SearchVideosAction
+  | SearchVideosSuccessAction
+  | SearchVideosErrorAction
+  | SearchVideosErrorResetAction;

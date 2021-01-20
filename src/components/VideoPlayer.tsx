@@ -9,8 +9,6 @@ interface VideoPlayerProps {
 const VideoPlayer: React.FC<VideoPlayerProps> = ({
   selectedVideo,
 }: VideoPlayerProps) => {
-  console.log('selectedVideo in player!', selectedVideo);
-
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [played, setPlayed] = useState(0);
@@ -26,12 +24,6 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
       setIsPlaying(false);
     }
   }, [selectedVideo]);
-
-  // useEffect(() => {
-  //   if (url && isPlaying) {
-  //     setIsPlaying(false);
-  //   }
-  // }, [url, isPlaying]);
 
   if (!selectedVideo) {
     return null;

@@ -1,4 +1,3 @@
-// import './VideoItem.css';
 import React from 'react';
 import { FetchedVideoItem } from '../state';
 

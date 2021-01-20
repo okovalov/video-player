@@ -1,6 +1,6 @@
 export enum ActionType {
-  SEARCH_REPOSITORIES = 'search_repositories',
-  SEARCH_REPOSITORIES_SUCCESS = 'search_repositories_success',
-  SEARCH_REPOSITORIES_ERROR = 'search_repositories_error',
-  SEARCH_REPOSITORIES_ERROR_RESET = 'search_repositories_error_reset',
+  SEARCH_VIDEOS = 'search_videos',
+  SEARCH_VIDEOS_SUCCESS = 'search_videos_success',
+  SEARCH_VIDEOS_ERROR = 'search_videos_error',
+  SEARCH_VIDEOS_ERROR_RESET = 'search_videos_error_reset',
 }

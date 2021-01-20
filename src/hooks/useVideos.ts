@@ -4,9 +4,9 @@ import { FetchedVideoItem } from '../state';
 
 type hookReturnType = [FetchedVideoItem[], (term: string) => Promise<void>];
 
-type MyType = (searchTerm: string) => hookReturnType;
+type VideosHookType = (searchTerm: string) => hookReturnType;
 
-const useVideos: MyType = (defaultSearchTerm: string) => {
+const useVideos: VideosHookType = (defaultSearchTerm: string) => {
   const [videos, setVideos] = useState<FetchedVideoItem[]>([]);
 
   useEffect(() => {

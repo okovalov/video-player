@@ -1,12 +1,12 @@
 import { Dispatch } from 'redux';
 import { ActionType } from '../action-types';
-import { Action, SearchRepositoriesErrorResetAction } from '../actions';
+import { Action, SearchVideosErrorResetAction } from '../actions';
 import youtube from '../../apis/youtube';
 
-export const searchRepositories = (term: string) => {
+export const searchVideos = (term: string) => {
   return async (dispatch: Dispatch<Action>) => {
     dispatch({
-      type: ActionType.SEARCH_REPOSITORIES,
+      type: ActionType.SEARCH_VIDEOS,
     });
 
     try {
@@ -20,7 +20,7 @@ export const searchRepositories = (term: string) => {
 
       if (!videos.length) {
         dispatch({
-          type: ActionType.SEARCH_REPOSITORIES_ERROR,
+          type: ActionType.SEARCH_VIDEOS_ERROR,
           payload: 'No videos found',
         });
 
@@ -28,18 +28,18 @@ export const searchRepositories = (term: string) => {
       }
 
       dispatch({
-        type: ActionType.SEARCH_REPOSITORIES_SUCCESS,
+        type: ActionType.SEARCH_VIDEOS_SUCCESS,
         payload: videos,
       });
     } catch (err) {
       dispatch({
-        type: ActionType.SEARCH_REPOSITORIES_ERROR,
+        type: ActionType.SEARCH_VIDEOS_ERROR,
         payload: err.message,
       });
     }
   };
 };
 
-export const resetError = (): SearchRepositoriesErrorResetAction => ({
-  type: ActionType.SEARCH_REPOSITORIES_ERROR_RESET,
+export const resetError = (): SearchVideosErrorResetAction => ({
+  type: ActionType.SEARCH_VIDEOS_ERROR_RESET,
 });

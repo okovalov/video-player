@@ -12,7 +12,7 @@ const ErrorMessage: React.FC<ErrorProps> = (props: ErrorProps) => {
   return (
     <article className="message is-danger">
       <div className="message-header">
-        <p>Danger</p>
+        <p>Error</p>
         <button
           className="delete"
           aria-label="delete"
