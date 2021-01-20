@@ -1,0 +1,103 @@
+@import 'common.scss';
+
+.section {
+  &.main-section {
+    padding-top: 0;
+    .container {
+      &.main-container {
+        box-shadow: 0 4px 4px $brand-dark;
+        border-radius: 5px;
+        background-color: $white-dark;
+        padding: 1rem;
+
+        .loading-container {
+          height: 50vh;
+          display: flex;
+          align-items: center;
+          width: 40%;
+        }
+
+        .search-form {
+          margin-bottom: 1rem;
+        }
+
+        .column-left {
+          .is-full-height {
+            height: 100%;
+          }
+
+          .player-panel {
+            .panel-block {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-evenly;
+              align-items: flex-start;
+
+              .buttons {
+                margin-top: 1rem;
+                margin-bottom: 0.25rem;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                flex-direction: row;
+
+                .button {
+                  width: 10%;
+                }
+
+                .details {
+                  width: 88%;
+                  padding: 0.5rem;
+                }
+
+                .duration {
+                  display: flex;
+                  justify-content: space-between;
+                  width: 100%;
+                  margin-top: 0.5rem;
+                }
+
+                .description {
+                  padding: 2px;
+                }
+              }
+            }
+          }
+        }
+
+        .column-right {
+          .video-list {
+            overflow-y: scroll;
+            max-height: 570px;
+
+            .video-item {
+              margin-bottom: 1rem;
+              width: 100%;
+
+              @media screen and (max-width: 770px) {
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                display: flex;
+
+                .card-content {
+                  width: 85%;
+                }
+              }
+              .card-image {
+                max-width: 256px;
+              }
+
+              .video-image {
+                width: 256px;
+                object-fit: scale-down;
+                height: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
