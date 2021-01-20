@@ -3,8 +3,10 @@ import WithLayout from './hoc/WithLayout';
 import VideoPlayer from './VideoPlayer';
 import SearchBar from './SearchBar';
 import VideoList from './VideoList';
-import useVideos from '../hooks/useVideos';
+import ErrorMessage from './ErrorMessage';
+import Loading from './Loading';
 import { FetchedVideoItem } from '../state';
+import { useTypedSelector } from '../hooks/useTypedSelector';
 
 import '../styles/MainPage.scss';
 
@@ -12,28 +14,40 @@ const MainPage: React.FC = () => {
   const [selectedVideo, setSelectedVideo] = useState<FetchedVideoItem | null>(
     null,
   );
-  const [videos, search] = useVideos('');
 
-  const onFormSubmit = (term: string) => {
-    console.log('aa term', term);
-    search(term);
-  };
+  const { error, loading } = useTypedSelector((state) => state.repositories);
 
   const onVideoSelect = (video: FetchedVideoItem) => {
     setSelectedVideo(video);
   };
 
-  return (
-    <WithLayout sectionClass={'main-section'} containerClass={'main-container'}>
-      <SearchBar onFormSubmit={onFormSubmit} />
-      <div className="container level level-container">
-        <div className="container1 level-left">
+  let content: React.ReactElement = <div></div>;
+
+  if (loading) {
+    content = <Loading />;
+  }
+
+  if (error) {
+    content = <ErrorMessage lastErrorMessage={error} />;
+  }
+
+  if (!loading && !error) {
+    content = (
+      <div className="columns">
+        <div className="column column-left">
           <VideoPlayer selectedVideo={selectedVideo} />
         </div>
-        <div className="container1 level-right">
-          <VideoList onVideoSelect={onVideoSelect} videos={videos} />
+        <div className="column column-right is-one-quarter">
+          <VideoList onVideoSelect={onVideoSelect} />
         </div>
       </div>
+    );
+  }
+
+  return (
+    <WithLayout sectionClass={'main-section'} containerClass={'main-container'}>
+      <SearchBar />
+      {content}
     </WithLayout>
   );
 };

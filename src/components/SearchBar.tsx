@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
+import { useActions } from '../hooks/useActions';
 
-interface SearchableProps {
-  onFormSubmit: (term: string) => void;
-}
+// interface SearchableProps {
+//   onFormSubmit: (term: string) => void;
+// }
 
-const SearchBar: React.FC<SearchableProps> = ({
-  onFormSubmit,
-}: SearchableProps) => {
+const SearchBar: React.FC = () => {
   const [term, setTerm] = useState('');
+
+  const { searchRepositories } = useActions();
 
   const onSubmit: React.FormEventHandler<HTMLFormElement> = (
     event: React.FormEvent<HTMLFormElement>,
   ) => {
     event.preventDefault();
-    onFormSubmit(term);
+    searchRepositories(term);
   };
 
   return (
@@ -34,18 +35,6 @@ const SearchBar: React.FC<SearchableProps> = ({
         </div>
       </article>
     </form>
-    // <div className="search-bar ">
-    //   <form onSubmit={onSubmit} className="form">
-    //     <div className="field">
-    //       <label>Video Search</label>
-    //       <input
-    //         type="text"
-    //         value={term}
-    //         onChange={(event) => setTerm(event.target.value)}
-    //       />
-    //     </div>
-    //   </form>
-    // </div>
   );
 };
 

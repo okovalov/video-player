@@ -14,15 +14,21 @@ const VideoItem: React.FC<VideoItemProps> = ({
   return (
     <div className="card video-item " onClick={() => onVideoSelect(video)}>
       <div className="card-image">
-        <figure className="image is-3by2">
+        <figure className="image ">
           <img
+            className="video-image"
             alt={video.snippet.title}
             src={video.snippet.thumbnails.medium.url}
+            // src="https://bulma.io/images/placeholders/128x128.png"
           />
         </figure>
       </div>
       <div className="card-content">
-        <div className="content">{video.snippet.title}</div>
+        <div className="content">
+          <p className="is-size-6 has-text-weight-semibold">
+            {video.snippet.title}
+          </p>
+        </div>
       </div>
     </div>
   );

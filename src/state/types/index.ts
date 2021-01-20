@@ -6,6 +6,8 @@ export type FetchedVideoThumbnails = {
 
 export type FetchedVideoSnippet = {
   title: string;
+  channelTitle: string;
+  description: string;
   thumbnails: FetchedVideoThumbnails;
 };
 

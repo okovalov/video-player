@@ -3,7 +3,7 @@ import MainHeader from '../../layout/headers/MainHeader';
 import MainFooter from '../../layout/footers/MainFooter';
 
 interface ChildProps {
-  children: JSX.Element | JSX.Element[];
+  children: JSX.Element | JSX.Element[] | false;
   sectionClass: string;
   containerClass: string;
 }

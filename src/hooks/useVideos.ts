@@ -14,13 +14,17 @@ const useVideos: MyType = (defaultSearchTerm: string) => {
   }, [defaultSearchTerm]);
 
   const search = async (term: string) => {
-    const response = await youtube.get('/search', {
-      params: {
-        q: term,
-      },
-    });
+    try {
+      const response = await youtube.get('/search', {
+        params: {
+          q: term,
+        },
+      });
 
-    setVideos(response.data.items);
+      setVideos(response.data.items);
+    } catch (err) {
+      console.log('err!', err);
+    }
   };
 
   return [videos, search];

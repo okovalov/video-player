@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import VideoItem from './VideoItem';
 import { FetchedVideoItem } from '../state';
 
+import { useTypedSelector } from '../hooks/useTypedSelector';
+
 interface VideoListProps {
-  videos: FetchedVideoItem[];
   onVideoSelect: (video: FetchedVideoItem) => void;
 }
 
 const VideoList: React.FC<VideoListProps> = ({
-  videos,
   onVideoSelect,
 }: VideoListProps) => {
-  const renderedList = videos.map((video) => {
+  const { data, error, loading } = useTypedSelector(
+    (state) => state.repositories,
+  );
+
+  const videosMapper = (video: FetchedVideoItem) => {
     return (
       <VideoItem
         key={video.id.videoId}
@@ -19,9 +23,22 @@ const VideoList: React.FC<VideoListProps> = ({
         video={video}
       />
     );
-  });
+  };
 
-  return <div className="video-list">{renderedList}</div>;
+  useEffect(() => {
+    if (data.length) {
+      const [firstVideo] = data;
+      onVideoSelect(firstVideo);
+    }
+  }, [data, onVideoSelect]);
+
+  return (
+    <div className="video-list">
+      {error && <h3>{error}</h3>}
+      {loading && <h3>Loading...</h3>}
+      {!error && !loading && data.map(videosMapper)}
+    </div>
+  );
 };
 
 export default VideoList;
