@@ -50,7 +50,6 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
   };
 
   const handleDuration = (duration: number) => {
-    console.log('du', duration);
     setDuration(duration);
   };
 

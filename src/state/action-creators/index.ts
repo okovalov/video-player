@@ -10,25 +10,22 @@ export const searchRepositories = (term: string) => {
     });
 
     try {
-      // const { data } = await axios.get(
-      //   'https://registry.npmjs.org/-/v1/search',
-      //   {
-      //     params: {
-      //       text: term,
-      //     },
-      //   },
-      // );
-
       const response = await youtube.get('/search', {
         params: {
           q: term,
         },
       });
 
-      // const names = data.objects.map((result: any) => {
-      //   return result.package.name;
-      // });
       const videos = response.data.items;
+
+      if (!videos.length) {
+        dispatch({
+          type: ActionType.SEARCH_REPOSITORIES_ERROR,
+          payload: 'No videos found',
+        });
+
+        return;
+      }
 
       dispatch({
         type: ActionType.SEARCH_REPOSITORIES_SUCCESS,

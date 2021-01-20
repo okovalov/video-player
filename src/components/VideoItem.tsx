@@ -19,7 +19,6 @@ const VideoItem: React.FC<VideoItemProps> = ({
             className="video-image"
             alt={video.snippet.title}
             src={video.snippet.thumbnails.medium.url}
-            // src="https://bulma.io/images/placeholders/128x128.png"
           />
         </figure>
       </div>
