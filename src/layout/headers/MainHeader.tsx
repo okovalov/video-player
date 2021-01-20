@@ -10,13 +10,13 @@ const MainHeader: React.FC = () => {
               <a href="/">
                 <span className="icon-text">
                   <span className="icon has-text-gold">
-                    <i className="fas fa-video fa-3x"></i>
+                    <i className="fas fa-video fa-2x"></i>
                   </span>
                 </span>
               </a>
             </div>
             <div className="header-title-container ">
-              <span className="has-text-gold is-size-4 is-uppercase has-text-weight-bold">
+              <span className="has-text-gold is-size-5 is-uppercase has-text-weight-bold">
                 Awesome Video Player
               </span>
             </div>

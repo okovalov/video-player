@@ -15,6 +15,7 @@
 html,
 body {
   height: 100%;
+  overflow: scroll;
 }
 
 body {
@@ -46,7 +47,7 @@ div#root > footer {
 
 div#root > section.hero {
   div.hero-body {
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
   }
   div.header-content-container {
     display: flex;

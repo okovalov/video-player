@@ -38,6 +38,32 @@
 
               .buttons {
                 margin-top: 1rem;
+                margin-bottom: 0.25rem;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                flex-direction: row;
+
+                .button {
+                  width: 10%;
+                }
+
+                .details {
+                  width: 88%;
+                  padding: 0.5rem;
+                }
+
+                .duration {
+                  display: flex;
+                  justify-content: space-between;
+                  width: 100%;
+                  margin-top: 0.5rem;
+                }
+
+                .description {
+                  padding: 2px;
+                }
               }
             }
           }
@@ -47,7 +73,7 @@
           .video-list {
             overflow-y: scroll;
             // min-height: 45vh;
-            max-height: 470px;
+            max-height: 570px;
 
             .video-item {
               margin-bottom: 1rem;

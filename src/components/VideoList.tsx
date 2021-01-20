@@ -30,7 +30,7 @@ const VideoList: React.FC<VideoListProps> = ({
       const [firstVideo] = data;
       onVideoSelect(firstVideo);
     }
-  }, [data, onVideoSelect]);
+  }, []);
 
   return (
     <div className="video-list">

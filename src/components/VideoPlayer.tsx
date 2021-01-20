@@ -76,41 +76,37 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
             onProgress={handleProgress}
             onDuration={handleDuration}
           />
-          {/* </div>
-        <div className="panel-block"> */}
+
           <div className="buttons">
             <button className="button" onClick={() => handlePlayPause()}>
               <span className="icon is-small">
                 <i className={buttonClassName}></i>
               </span>
             </button>
-            <div>
+            <div className="details">
               <div>
-                <Duration seconds={duration * played} />
-                {' / '}
-                <Duration seconds={duration} />
+                <p>
+                  <strong>{videoTitle}</strong>
+                </p>
               </div>
+              <div className="duration">
+                <p>
+                  <small>{videoChannelTitle}</small>
+                </p>
+                <p>
+                  <strong>
+                    <Duration seconds={duration * played} />
+                    {' / '}
+                    <Duration seconds={duration} />
+                  </strong>
+                </p>
+              </div>
+            </div>
+            <div className=" description">
+              <p>{videoDescription}</p>
             </div>
           </div>
         </div>
-        {/* <div className="panel-block">
-          <div className="box">
-            <article className="media">
-              <div className="media-content">
-                <div className="content">
-                  <p>
-                    <strong>{videoTitle}</strong>
-                    <br />
-                    <small>{videoChannelTitle}</small>
-                    <br />
-                    <br />
-                    {videoDescription}
-                  </p>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div> */}
       </article>
     </div>
   );
