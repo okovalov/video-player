@@ -2,7 +2,7 @@ import { ActionType } from '../action-types';
 import { Action } from '../actions';
 import { FetchedVideoItem } from '../types';
 
-interface RepositoriesState {
+interface VideosState {
   loading: boolean;
   error: string | null;
   data: FetchedVideoItem[];
@@ -15,17 +15,17 @@ const initialState = {
 };
 
 const reducer = (
-  state: RepositoriesState = initialState,
+  state: VideosState = initialState,
   action: Action,
-): RepositoriesState => {
+): VideosState => {
   switch (action.type) {
-    case ActionType.SEARCH_REPOSITORIES:
+    case ActionType.SEARCH_VIDEOS:
       return { loading: true, error: null, data: [] };
-    case ActionType.SEARCH_REPOSITORIES_SUCCESS:
+    case ActionType.SEARCH_VIDEOS_SUCCESS:
       return { loading: false, error: null, data: action.payload };
-    case ActionType.SEARCH_REPOSITORIES_ERROR:
+    case ActionType.SEARCH_VIDEOS_ERROR:
       return { loading: false, error: action.payload, data: [] };
-    case ActionType.SEARCH_REPOSITORIES_ERROR_RESET:
+    case ActionType.SEARCH_VIDEOS_ERROR_RESET:
       return { loading: false, error: null, data: [] };
     default:
       return state;
